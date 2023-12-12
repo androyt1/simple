@@ -28,7 +28,7 @@ export const register = async (req, res) => {
             const token = await jwt.sign({ userId: newUser._id }, process.env.JWT_SECRET, {
                 expiresIn: "1d",
             });
-            res.cookie("jwt", token, { httpOnly: true });
+            res.cookie("jwt", token, { httpOnly: true, sameSite: "none", secure: true });
             const { password, ...others } = newUser._doc;
             return res.status(201).json(others);
         }
@@ -58,7 +58,7 @@ export const login = async (req, res) => {
         const token = await jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
             expiresIn: "1d",
         });
-        res.cookie("jwt", token, { httpOnly: true });
+        res.cookie("jwt", token, { httpOnly: true, sameSite: "none", secure: true });
         const { password, ...others } = user._doc;
         return res.status(201).json(others);
     } catch (error) {
