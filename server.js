@@ -17,7 +17,7 @@ mongoose
 const app = express();
 
 //middlewares
-app.use(cors({ origin: "http://localhost:3000", credentials: true }));
+app.use(cors({ origin: "https://ubiquitous-bunny-a44857.netlify.app", credentials: true }));
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.json(urlencoded({ extended: true })));
