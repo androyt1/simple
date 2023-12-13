@@ -17,7 +17,7 @@ mongoose
 const app = express();
 
 //middlewares
-app.use(cors({ origin: "https://simple-app-test.netlify.app", credentials: true }));
+app.use(cors({ origin: "https://simple-tlte.onrender.com", credentials: true }));
 
 app.options("*", cors());
 app.use(cookieParser());
